@@ -1,31 +1,41 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
+#include <string>
 
-class Material
-{
-    public:
+using namespace std;
 
-        string descricao;
-        string rastreabilidade;
-        int QTD;
-        int codSAP;
-        int maxQTD;
-        int minQTD;
-        int valorUN;
+class Material {
+private:
+    string descricao;
+    int codSAP;
+    int quantidade;
+    string endereco;
+    int maxQuantidade;
+    int minQuantidade;
+    int valorUnidade;
+    int classe;  // 0 - Mecânico, 1 - Elétrica
 
-        // Classificar o tipo do material
-        enum classificacao {
-        MECANICA,
-        ELETRICA,
-        };
-        classificacao Classe;
-        Material();
-        virtual ~Material();
+public:
+    // Construtor
+    Material();
 
-    protected:
+    // Setters
+    void setInformacoes(string desc, int sap, int qtd, string end, int maxQtd, int minQtd, int valorUN, int cls);
 
-    private:
+    // Getters
+    string getDescricao() const;
+    int getCodSAP() const;
+    int getQuantidade() const;
+    string getEndereco() const;
+    int getMaxQuantidade() const;
+    int getMinQuantidade() const;
+    int getValorUnidade() const;
+    int getClasse() const;
+
+    // Métodos para modificar quantidade
+    void adicionarQuantidade(int qtd);
+    void retirarQuantidade(int qtd);
 };
 
-#endif // MATERIAL_H
+#endif
