@@ -1,16 +1,30 @@
 #ifndef TECNICO_H
 #define TECNICO_H
 
+#include <string>
 
-class Tecnico
-{
-    public:
-        Tecnico();
-        virtual ~Tecnico();
+class Tecnico {
+private:
+    int idTEC;
+    std::string nometec;
+    std::string senha;
+    bool cadastrado;
 
-    protected:
+public:
+    Tecnico();
+    bool login(const std::string& nome, const std::string& senha) const;
 
-    private:
+    void cadastrar();
+
+
+    bool isCadastrado() const;
+
+
+    std::string getNome() const;
+
+
 };
+
+
 
 #endif // TECNICO_H
